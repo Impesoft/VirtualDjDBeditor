@@ -1,0 +1,48 @@
+﻿<Window x:Class="VirtualDjDBeditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualDjDBeditor"
+        xmlns:vm="clr-namespace:VirtualDjDBeditor.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <!-- Changed to '*' to use remaining space -->
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"             
+                    Grid.Row="0">
+            <Button Content="Select database.xml"
+            x:Name="SelectDB"
+
+            Margin="10"
+            Click="Select_Database"
+            FontSize="20">
+            </Button>
+            <Button Content="Find and Replace"
+            x:Name="Find"
+            Margin="10"
+            Click="Select_Database"
+            FontSize="20">
+            </Button>
+        </StackPanel>
+        <DataGrid x:Name="SongsDataGrid" AutoGenerateColumns="False" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Songs}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding Index}" Width="50"/>
+                <DataGridTextColumn Header="File Path" Binding="{Binding FilePath}" Width="3*"/>
+                <DataGridTextColumn Header="Author" Binding="{Binding Tags.Author}" Width="2*"/>
+                <DataGridTextColumn Header="Title" Binding="{Binding Tags.Title}" Width="2*"/>
+                <DataGridTextColumn Header="Song Length" Binding="{Binding Infos.SongLength}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
