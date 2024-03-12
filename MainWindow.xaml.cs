@@ -11,11 +11,5 @@ namespace VirtualDjDBeditor
         {
             InitializeComponent();
         }
-
-        private void Select_Database(object sender, RoutedEventArgs e)
-        {
-            ViewModel?.SelectDatabase();
-            SelectDB.Content = "Database Selected"; // Update as needed
-        }
     }
 }

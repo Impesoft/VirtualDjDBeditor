@@ -4,12 +4,16 @@ using System.IO;
 using System.Xml.Serialization;
 using Microsoft.Win32;
 using VirtualDjDBeditor.Models;
+using VirtualDjDBeditor.Commands;
+using System.Windows.Input;
 
 namespace VirtualDjDBeditor.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public ICommand SelectDatabaseCommand { get; }
+
 
         private ObservableCollection<Song>? _songs;
         public ObservableCollection<Song> Songs
@@ -28,6 +32,7 @@ namespace VirtualDjDBeditor.ViewModels
         public MainViewModel()
         {
             Songs = new ObservableCollection<Song>();
+            SelectDatabaseCommand = new RelayCommand(SelectDatabase);
         }
 
         public void LoadSongs(string filePath)

@@ -23,15 +23,14 @@
                     Grid.Row="0">
             <Button Content="Select database.xml"
             x:Name="SelectDB"
-
             Margin="10"
-            Click="Select_Database"
+            Command="{Binding SelectDatabaseCommand}"
             FontSize="20">
             </Button>
             <Button Content="Find and Replace"
             x:Name="Find"
             Margin="10"
-            Click="Select_Database"
+            Command="{Binding SelectDatabaseCommand}"
             FontSize="20">
             </Button>
         </StackPanel>
