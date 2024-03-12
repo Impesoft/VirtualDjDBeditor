@@ -30,7 +30,7 @@
             <Button Content="Find and Replace"
             x:Name="Find"
             Margin="10"
-            Command="{Binding SelectDatabaseCommand}"
+            Command="{Binding FindAndReplaceCommand}"
             FontSize="20">
             </Button>
         </StackPanel>

@@ -13,6 +13,7 @@ namespace VirtualDjDBeditor.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public ICommand SelectDatabaseCommand { get; }
+        public ICommand FindAndReplaceCommand { get; }
 
 
         private ObservableCollection<Song>? _songs;
@@ -33,6 +34,12 @@ namespace VirtualDjDBeditor.ViewModels
         {
             Songs = new ObservableCollection<Song>();
             SelectDatabaseCommand = new RelayCommand(SelectDatabase);
+            FindAndReplaceCommand = new RelayCommand(FindAndReplace);
+        }
+
+        private void FindAndReplace()
+        {
+            throw new NotImplementedException();
         }
 
         public void LoadSongs(string filePath)
